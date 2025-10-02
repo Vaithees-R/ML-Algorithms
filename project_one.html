@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Component Analysis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-styles.css"> </head>
+<body class="project-one-body">
+
+    <div class="project-header">
+        <h1>Principal Component Analysis</h1>
+    </div>
+
+    <main class="project-content-area">
+        <div class="project-info-box">
+            <h2>Definition :</h2>
+            <p>
+                Principal Component Analysis (PCA) is a popular dimensionality reduction technique used to transform a dataset with a large number of variables into a smaller set of new, uncorrelated variables called principal components. The key goal is to capture the maximum possible information or variance from the original data in these new components.
+            </p>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Why :</h2>
+            <p>
+                [Explain why PCA is used here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]
+            </p>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Working :</h2>
+            <p>
+                [Describe how PCA works here. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.]
+            </p>
+        </div>
+    </main>
+ <main class="project-content-area">
+        <div class="project-info-box">
+            <h1>Principal Component Analysis</h1>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Definition :</h2>
+            <p>
+                Principal Component Analysis (PCA) is a popular technique for reducing the number of features (dimensionality) in a dataset while trying to preserve as much of the important information as possible.
+            </p>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Why Use PCA?</h2>
+            <p>PCA helps improve data visualization and can prevent models from overfitting by focusing on the most important patterns in the data.</p>
+            <img src="images/pca_visualization.png" alt="PCA Before and After Visualization" style="width: 100%; border-radius: 10px; margin-top: 15px;">
+        </div>
+
+        <div class="project-info-box">
+            <h2>How It Works :</h2>
+            <p>PCA identifies the most significant patterns (principal components) in the data. Below is the full Python code demonstrating the step-by-step process.</p>
+            <pre class="code-block"><code>
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_blobs
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+
+# PART 1: THE "WHY"
+X, y = make_blobs(n_samples=300, centers=3, n_features=10, random_state=42)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+# PART 2: THE "HOW"
+cov_matrix = np.cov(X_scaled.T)
+eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
+sorted_indices = np.argsort(eigenvalues)[::-1]
+sorted_eigenvectors = eigenvectors[:, sorted_indices]
+projection_matrix = sorted_eigenvectors[:, :2]
+X_manual_pca = X_scaled.dot(projection_matrix)
+
+# (Plotting code would be here in the actual script)
+            </code></pre>
+            <p style="margin-top: 20px;">The plot below confirms our manual process matches the library's result.</p>
+            <img src="images/pca_manual_transform.png" alt="PCA Manual Transformation Result" style="width: 70%; border-radius: 10px; margin-top: 15px;">
+        </div>
+    </main>
+   <div class="project-info-box">
+    <h2>Real-World Example: The Iris Dataset</h2>
+    <p>This dataset has 4 features, making it impossible to graph normally. PCA projects it into 2D, revealing the 3 flower species. <strong>Hover over any point</strong> to see its original 4 measurements.</p>
+    
+    <div id="visualization-wrapper">
+        <svg id="pca-plot" width="600" height="450"></svg>
+        <div id="tooltip" class="tooltip">
+            <strong id="tooltip-species"></strong>
+            <div id="tooltip-barchart">
+                <div class="bar-item"><span class="bar-label">Sepal L.</span><div class="bar" id="bar1"></div></div>
+                <div class="bar-item"><span class="bar-label">Sepal W.</span><div class="bar" id="bar2"></div></div>
+                <div class="bar-item"><span class="bar-label">Petal L.</span><div class="bar" id="bar3"></div></div>
+                <div class="bar-item"><span class="bar-label">Petal W.</span><div class="bar" id="bar4"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div><span class="dot setosa"></span> Setosa</div>
+        <div><span class="dot versicolor"></span> Versicolor</div>
+        <div><span class="dot virginica"></span> Virginica</div>
+    </div>
+</div>
+<script src="js/project-one-script.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/ml-pca@4.0.1/dist/pca.min.js"></script>
+    <script src="js/iris-simulation.js"></script>
+
+</body>
+</html>
+</body>
+</html>

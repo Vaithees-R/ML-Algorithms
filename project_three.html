@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singular Value Decomposition (SVD)</title>
+    <link rel="stylesheet" href="css/project-styles1.css">
+</head>
+<body class="project-three-body">
+
+    <main class="project-content-area">
+
+        <div class="project-info-box">
+            <h1>Singular Value Decomposition</h1>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Definition:</h2>
+            <p><strong>Singular Value Decomposition (SVD)</strong> is a powerful matrix factorization technique that decomposes any real or complex matrix into three simpler matrices. It's often expressed as: <code>M = U Σ V*</code>, where:</p>
+            <ul>
+                <li><code>M</code> is the original matrix (e.g., a dataset or an image).</li>
+                <li><code>U</code> is an orthogonal matrix whose columns are the left-singular vectors of <code>M</code>.</li>
+                <li><code>Σ</code> (Sigma) is a diagonal matrix containing the singular values of <code>M</code>, ordered from largest to smallest. These values indicate the "importance" of each singular vector.</li>
+                <li><code>V*</code> (V-conjugate transpose) is an orthogonal matrix whose columns are the right-singular vectors of <code>M</code>.</li>
+            </ul>
+            <p>SVD reveals the underlying structure of a matrix and is a cornerstone in many data analysis techniques.</p>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Why Use SVD?</h2>
+            <ul>
+                <li><strong>Dimensionality Reduction:</strong> By keeping only the largest singular values and their corresponding vectors, SVD can project high-dimensional data into a lower-dimensional space, preserving most of the data's variance.</li>
+                <li><strong>Data Compression:</strong> Enables significant compression of data (especially images) by representing the original matrix with fewer singular values, leading to smaller storage requirements.</li>
+                <li><strong>Noise Reduction:</strong> Smaller singular values often correspond to noise, so discarding them during reconstruction can effectively denoise data.</li>
+                <li><strong>Feature Extraction:</strong> Helps in identifying the most important features or components in a dataset.</li>
+                <li><strong>Recommendation Systems:</strong> Underpins many collaborative filtering algorithms, such as those used in Netflix or Amazon for personalized recommendations.</li>
+            </ul>
+        </div>
+
+        <div class="project-info-box">
+            <h2>How SVD Works: Image Compression Simulation</h2>
+            <p>SVD can be beautifully illustrated through image compression. An image can be represented as a matrix of pixel values. By taking only a subset of the largest singular values and their corresponding singular vectors, we can reconstruct an approximation of the original image.</p>
+            <p>The more singular values we use, the higher the quality of the reconstructed image, but also the larger the data required. This interactive simulation allows you to explore this trade-off.</p>
+
+            <div id="svd-container">
+                <div class="image-display">
+                    <p>Original Image:</p>
+                    <canvas id="originalCanvas" width="200" height="200"></canvas>
+                </div>
+                <div class="image-display">
+                    <p>Reconstructed Image:</p>
+                    <canvas id="reconstructedCanvas" width="200" height="200"></canvas>
+                </div>
+                 <div class="controls">
+    <label for="imageLoader" class="upload-label">1. Choose Your Image:</label>
+    <input type="file" id="imageLoader" accept="image/png, image/jpeg">
+    
+    <label for="singularValues" style="margin-top: 20px;">2. Adjust Number of Singular Values (k): <span id="kValue">1</span></label>
+    <input type="range" id="singularValues" min="1" max="200" value="1" disabled> </div>
+
+            </div>
+            <p id="svd-info" style="font-style: italic; color: #bbb; margin-top: 15px;"></p>
+        </div>
+       
+        
+
+    </main>
+   <script src="js/project-one-script.js"></script>
+
+    <script src="js/jimp.min.js"></script>
+    <script src="js/numeric.min.js"></script>
+    
+    <script src="js/svd-simulation.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

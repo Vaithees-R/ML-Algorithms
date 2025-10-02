@@ -1,0 +1,161 @@
+/* Update this in your css/project-styles.css file */
+.project-info-box {
+    background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent background for each box */
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin-bottom: 25px; /* Adds space between boxes */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Shadow for each box */
+    max-width: 900px; /* Limits width for better readability */
+    width: 100%; /* Ensures it takes available width up to max-width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Ensure the main content area is still responsible for overall spacing */
+.project-content-area {
+    width: 100%;
+    display: flex; /* Use flex to manage boxes within the area */
+    flex-direction: column; /* Stack them vertically */
+    align-items: center; /* Center boxes horizontally within this area */
+}/* --- Project Three Specific Styles --- */
+.project-three-body {
+    background: linear-gradient(135deg, #00BCD4, #E91E63); /* Cyan to Magenta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+#svd-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    max-width: 900px;
+}
+
+.image-display {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.image-display p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.image-display canvas {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    background-color: #333; /* Fallback if image doesn't load */
+}
+
+.controls {
+    flex-basis: 100%; /* Takes full width */
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.controls label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.controls input[type="range"] {
+    width: 80%;
+    max-width: 400px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+
+.controls input[type="range"]:hover {
+    opacity: 1;
+}
+
+.controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #E91E63; /* Magenta thumb */
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.controls input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #E91E63;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#svd-info {
+    color: #ffd700; /* Gold for information text */
+    font-size: 1em;
+}
+
+/* --- SVD Upload Button Styles --- */
+
+.controls .upload-label {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffd700;
+}
+
+.controls input[type="file"] {
+    color: #ddd;
+    margin-top: 10px;
+    width: 280px;
+}
+/* Style the button that appears */
+.controls input[type="file"]::file-selector-button {
+    font-weight: bold;
+    color: #E91E63;
+    padding: 8px 12px;
+    border: 1px solid #E91E63;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.controls input[type="file"]::file-selector-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Rule to make all text white inside the info boxes --- */
+
+.project-info-box,
+.project-info-box h1,
+.project-info-box h2,
+.project-info-box p,
+.project-info-box li,
+.project-info-box ul,
+.project-info-box strong,
+.project-info-box label {
+    color: #ffffff;
+}
+
+/* Center the main H1 title inside the info boxes */
+.project-info-box h1 {
+    text-align: center;
+}

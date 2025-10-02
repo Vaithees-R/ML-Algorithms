@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="#home">HOME</a>
+        <span class="divider">|</span>
+        <a href="#about">About</a>
+        <span class="divider">|</span>
+        <div class="dropdown">
+            <button class="dropdown-btn" id="algoButton">Algorithm</button>
+            <div class="dropdown-content" id="algoDropdown">
+                <a href="project_one.html">PCA</a>
+                <a href="project_two.html">t-SNE</a>
+                <a href="project_three.html">SVD</a>
+            </div>
+        </div>
+    </nav>
+    </nav> <h1 class="page-title">Dimensionality Reduction Algorithms In ML</h1>
+
+
+
+    <main class="content-area">
+        <div class="info-box">
+            
+            <h3><strong>Definition :</strong> </h3>
+            <p>In machine learning, dimensionality reduction is the process of reducing the number of features (or dimensions) in a dataset while retaining as much of the original's meaningful information as possible. It's a crucial preprocessing step for handling high-dimensional data, which can otherwise lead to computational inefficiency and decreased model performance.</p>
+        </div>
+        <div class="info-box">
+            <h3>WHY</h3>
+            <ul class="benefits-list">
+            <li>
+                <strong>Faster Training:</strong> Fewer features mean less data for the machine learning model to process, which significantly speeds up training time. 🚀
+            </li>
+            <li>
+                <strong>Reduces Overfitting:</strong> It simplifies the model by removing irrelevant or redundant features (noise), making it more likely to perform well on new, unseen data.
+            </li>
+            <li>
+                <strong>Easier Visualization:</strong> It allows you to plot and visualize high-dimensional data in 2D or 3D, making it much easier to spot patterns and relationships. 📊
+            </li>
+        </ul>
+        </div>
+        <div class="info-box">
+            <h3>Common Techniques</h3>
+            <ul class="techniques-list">
+                <li><strong>Principal Component Analysis (PCA):</strong> A linear technique that transforms the data into a new coordinate system, reducing dimensions while preserving variance.</li>
+                <li><strong>t-Distributed Stochastic Neighbor Embedding (t-SNE):</strong> A non-linear technique particularly useful for visualizing high-dimensional data in 2D or 3D.</li>
+                <li><strong>Autoencoders:</strong> Neural networks designed to learn efficient codings of input data, often used for non-linear dimensionality reduction.</li>
+            </ul>
+            
+    </main>
+    <div class="pros-cons-container">
+        <div class="info-box">
+            <h3>PROs</h3>
+            <ul class="benefits-list">
+                <li>Improved Performance: It reduces the complexity of your data, which means machine learning algorithms can train faster and require less memory. 🚀
+
+</li>
+                <li>Reduces Overfitting: By eliminating redundant or noisy features, it helps create simpler models that are more generalized and perform better on new, unseen data</li>
+                <li>Enhanced Data Visualization: It allows you to condense high-dimensional data into 2 or 3 dimensions, making it possible to plot and visually explore complex datasets to find patterns. 📊</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>cons</h3>
+            <ul class="benefits-list">
+                <li>Potential Information Loss: The biggest drawback is that you inevitably lose some information when you reduce dimensions. The challenge is to preserve the important information while discarding the noise.</li>
+                <li>Reduced Interpretability: New features created by techniques like PCA are combinations of the original ones. This can make them very difficult to interpret, and you might lose the original meaning of your features.</li>
+                <li>Computationally Intensive: Finding the optimal subset of features or the best projection can be a computationally expensive process itself, especially on very large datasets.</li>
+            </ul>
+        </div>
+    </div>
+
+</main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
