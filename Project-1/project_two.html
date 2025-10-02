@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t-Distributed Stochastic Neighbor Embedding (t-SNE)</title>
+    <link rel="stylesheet" href="css/project-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.150.1/three.min.js"></script>
+</head>
+<body class="project-two-body">
+
+    <main class="project-content-area">
+
+        <div class="project-info-box">
+            <h1>t-Distributed Stochastic Neighbor Embedding</h1>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Definition:</h2>
+            <p><strong>t-Distributed Stochastic Neighbor Embedding (t-SNE)</strong> is a non-linear dimensionality reduction technique primarily used for visualizing high-dimensional datasets. It maps multi-dimensional data points into a lower-dimensional space (typically 2D or 3D) in a way that preserves the local structure of the data, meaning similar points in the high-dimensional space remain close in the low-dimensional map.</p>
+            <p>Unlike linear methods like PCA, t-SNE can capture complex, non-linear relationships, making it highly effective at revealing hidden clusters and patterns in data.</p>
+        </div>
+
+        <div class="project-info-box">
+            <h2>Why Use t-SNE?</h2>
+            <ul>
+                <li><strong>Reveals Clusters:</strong> Excellent at making distinct clusters of data points visible in lower dimensions, even when those clusters are intertwined in the original high-dimensional space.</li>
+                <li><strong>Non-linear Relationships:</strong> Can uncover complex, non-linear structures that linear methods (like PCA) might miss.</li>
+                <li><strong>Visualization Power:</strong> Produces visually appealing and intuitive maps that are easy for humans to interpret, helping to understand complex data structures at a glance.</li>
+                <li><strong>Exploratory Data Analysis:</strong> A powerful tool for exploratory data analysis, pattern recognition, and validating clustering results.</li>
+            </ul>
+        </div>
+
+        <div class="project-info-box">
+          <h2>Real-World Example: Handwritten Digits</h2>
+           <p>This is a t-SNE visualization of hundreds of handwritten digits. Each image is 64-dimensional data, reduced to 2D. The algorithm groups similar-looking numbers together. <strong>Hover over a point to see the original image!</strong></p>
+
+                  <div id="tsne-digits-wrapper">
+                 <div id="tsne-digits-plot"></div>
+              <div id="digit-tooltip" class="digit-tooltip">
+                 <canvas id="digit-canvas" width="80" height="80"></canvas>
+                <div id="digit-label"></div>
+            
+        </div>
+    </div>
+    <div class="project-info-box">
+    <h2>t-SNE Visualization Simulation 🧠</h2>
+    <p>This plot simulates the output of a t-SNE algorithm. Notice how distinct classes are **tightly clustered** in the 2D space, demonstrating t-SNE's ability to preserve **local data structure** from high dimensions. **Zoom** and **pan** using the interactive controls!</p>
+
+    <div id="plotly-tsne-plot"></div>
+</div>
+</div>
+
+    </main>
+</main>
+</main>
+
+    <script src="js/project-one-script.js"></script> <script src="https://cdn.plot.ly/plotly-2.31.1.min.js" charset="utf-8"></script>
+    
+    <script src="js/plotly-simulation.js"></script>
+
+
+
+
+</body>
+</html>

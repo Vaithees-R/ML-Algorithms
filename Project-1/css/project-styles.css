@@ -1,0 +1,337 @@
+/* Specific styles for Project One (PCA Page) */
+
+.project-one-body {
+    background: linear-gradient(90deg, #ff8c00, #ffc800, #4CAF50); /* Orange to Yellow to Green Gradient */
+    background-attachment: fixed;
+    /* Reuse other body styles from style.css (font, color, flex, etc.) */
+}
+
+/* You can reuse the existing .info-box styling, or create new styles if you want different box appearances for projects */
+/* For now, we'll make them similar but give them a slightly different appearance if desired */
+
+.project-header {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    border-radius: 20px;
+    padding: 20px 40px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: white;
+    width: 80%;
+    max-width: 600px; /* Adjust max-width as needed */
+}
+
+.project-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+.project-content-area {
+    width: 80%;
+    max-width: 600px; /* Match width with header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-info-box {
+    background: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background for boxes */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    border-radius: 20px;
+    padding: 25px 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    width: 100%; /* Make boxes take full width of their container */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.project-info-box h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+    color: #ffd700; /* Gold color for headings */
+}
+
+.project-info-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Styling for Code Blocks */
+.code-block {
+    background-color: #1e1e1e; /* Dark background */
+    color: #d4d4d4; /* Light grey text */
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    font-size: 0.9rem;
+    white-space: pre-wrap; /* Allows text to wrap */
+    overflow-x: auto; /* Adds a scrollbar if code is too wide */
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applying the animation to the boxes */
+.project-info-box {
+    /* ... your existing styles for .project-info-box ... */
+
+    /* Add these new animation properties */
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+/* Staggering the animation for each box */
+.project-info-box:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.project-info-box:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.project-info-box:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.project-info-box:nth-child(4) {
+    animation-delay: 0.4s;
+}
+/* --- SCROLL-TRIGGERED ANIMATION STYLES --- */
+
+/* Style for the boxes BEFORE they are visible */
+.project-info-box {
+    /* ... your other .project-info-box styles ... */
+
+    /* Add this transition and set the initial hidden state */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(50px); /* Start 50px lower */
+}
+
+/* Style for the boxes AFTER they become visible */
+.project-info-box.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+}
+
+/* --- STYLES FOR THE CINEMATIC PCA SIMULATION --- */
+
+#simulation-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#pca-plot {
+    background-color: #222;
+    border: 1px solid #555;
+    border-radius: 8px;
+    max-width: 100%; /* Make it responsive */
+    height: auto;
+}
+
+#explanation-text {
+    min-height: 25px; /* Give it some space */
+    font-size: 1.1rem;
+    color: #ffd700; /* Gold color to match headings */
+    font-weight: bold;
+}
+
+.data-point {
+    fill: #00aaff;
+}
+
+.pc-line {
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.pc1 { stroke: #ff4757; }
+.pc2 { stroke: #2ed573; }
+.search-line { stroke: #feca57; }
+
+#run-pca-btn {
+    background-color: #ffd700;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#run-pca-btn:hover {
+    background-color: #ffc400;
+    transform: scale(1.05);
+}
+
+#run-pca-btn:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+}
+/* --- STYLES FOR IRIS DATASET SIMULATION --- */
+
+#visualization-wrapper {
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#pca-plot {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+.axis-label {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #fff;
+    text-anchor: middle;
+}
+
+/* Tooltip Card */
+.tooltip {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: opacity 0.2s ease-in-out;
+    width: 200px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#tooltip-species {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffd700;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+#tooltip-barchart { display: flex; flex-direction: column; gap: 8px; }
+.bar-item { display: flex; align-items: center; }
+.bar-label { font-size: 12px; width: 60px; color: #ccc; }
+.bar {
+    height: 15px;
+    border-radius: 3px;
+    transition: width 0.3s ease-out;
+}
+#bar1 { background-color: #e74c3c; }
+#bar2 { background-color: #2ecc71; }
+#bar3 { background-color: #9b59b6; }
+#bar4 { background-color: #3498db; }
+
+/* Legend */
+.legend { display: flex; justify-content: center; gap: 20px; margin-top: 15px; color: #fff; font-weight: bold; }
+.dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; margin-right: 5px; border: 1px solid rgba(0,0,0,0.2); }
+.dot.setosa { background-color: #e74c3c; }
+.dot.versicolor { background-color: #2ecc71; }
+.dot.virginica { background-color: #9b59b6; }
+
+/* --- Project Two Specific Styles --- */
+/* Find this style in css/project-styles.css and update it */
+
+.project-two-body {
+    background: linear-gradient(135deg, #001f3f, #8B0000); /* Deep blue to dark red */
+
+    /* ADD THESE LINES TO CENTER THE CONTENT */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px; /* Adds space on top/bottom and sides */
+}
+
+/* General styles for list in definition/why */
+.project-info-box ul {
+    list-style: disc inside;
+    text-align: left;
+    margin-left: 20px;
+    color: #e0e0e0;
+}
+
+.project-info-box ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* t-SNE Simulation specific */
+#tsne-explanation {
+    color: #ffd700; /* Gold to match other highlights */
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* --- STYLES FOR t-SNE DIGITS SIMULATION --- */
+
+#tsne-digits-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 550px;
+}
+
+#tsne-digits-plot {
+    width: 100%;
+    height: 550px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.digit-tooltip {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; /* Critical for Plotly hover events to work */
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 10px;
+    transition: opacity 0.2s;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#digit-canvas {
+    display: block;
+    image-rendering: pixelated; /* Makes the 8x8 image sharp */
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ccc;
+}
+
+#digit-label {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+} 
+
+
